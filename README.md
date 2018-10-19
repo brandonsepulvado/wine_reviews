@@ -1,2 +1,10 @@
-# wine_reviews
-Using wine reviews to explore various visualization and machine learning methods
+# Exploring Wine Reviews
+
+## Purpose
+This repository does not accomplish a single goal; rather, it contains files I use to explore wine reviews in the purpose of practicing various visualization and machine learning methods.
+
+## Data
+The data contain roughly 150 thousand wine reviews and were scraped from WineEnthusiast. I did not gather these data myself; you may find the files feely available on [Kaggle](https://www.kaggle.com/zynicide/wine-reviews). 
+
+## Author
+- Brandon Sepulvado
