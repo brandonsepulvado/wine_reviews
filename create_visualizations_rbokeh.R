@@ -442,8 +442,8 @@ alsace <- reviews_fr %>%
 
 figure(legend_location = "bottom_right",
        width = 600,
-       height = 800,
-       title = "Alsace Wine Reviews") %>% 
+       height = 600,
+       title = "Alsace Wine Reviews, 1996-2016") %>% 
   ly_points(x = price,
             y = points,
             data = alsace,
@@ -457,6 +457,8 @@ figure(legend_location = "bottom_right",
             xlab = "Price",
             ylab = "Points") %>% 
   theme_title(text_font_size = "14pt")
+    # seems the dollar sign is set at a fixed distance; aligns fine with 
+    # three figure prices but has space with two figure prices 
 
 
 # how many reviews within this region per reviewer?
