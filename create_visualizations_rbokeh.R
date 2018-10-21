@@ -408,8 +408,8 @@ plot_scatter <- function(x){
 scatter_list_regtype <- lapply(split_region_type, plot_scatter)
 
 # now plot together
-grid_plot(list(AOC = scatter_list[[1]],
-               IGP = scatter_list[[2]]),
+grid_plot(list(AOC = scatter_list_regtype[["aoc"]],
+               IGP = scatter_list_regtype[["igp"]]),
           nrow = 1,
           same_axes = TRUE,
           xlim = c(0, 1000))
@@ -436,4 +436,30 @@ grid_plot(list(Bordeaux = scatter_list_province[["bordeaux"]],
 
 # for variety color, need to reduce number of levels
 
+# bordeaux by variety
+alsace <- reviews_fr %>% 
+  filter(province == "alsace")
 
+figure(legend_location = "bottom_right",
+       width = 600,
+       height = 800,
+       title = "Alsace Wine Reviews") %>% 
+  ly_points(x = price,
+            y = points,
+            data = alsace,
+            hover = "<b>Winery</b>: @winery<br>
+            <b>Vintage</b>: @vintage<br>
+            <b>Price</b>: $@price<br>
+            <b>Points</b>: @points<br>",
+            size = 6,
+            alpha = 0.3,
+            color = as.factor(taster_name),
+            xlab = "Price",
+            ylab = "Points") %>% 
+  theme_title(text_font_size = "14pt")
+
+
+# how many reviews within this region per reviewer?
+reviews_fr %>% 
+  filter(province == "alsace") %>% 
+  count(taster_name)
